@@ -1,5 +1,8 @@
 package org.dimigo.gui.Stack;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,15 +11,22 @@ import javafx.fxml.Initializable;
 
 import javafx.scene.control.ComboBox;
 
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+import javafx.util.Duration;
 import org.jsoup.nodes.Element;
 
 import java.net.URL;
 
-import java.util.HashMap;
-import java.util.ResourceBundle;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class Controller implements Initializable {
     @FXML
@@ -25,8 +35,18 @@ public class Controller implements Initializable {
     TextField txtSearch;
     @FXML
     ListView<String> list = new ListView<String>();
+    @FXML
+    Label time1;
+    @FXML
+    WebView webView;
 
     public int cnt = 1;
+    private int minute, hour, second;
+
+    Date dt = new Date();
+    SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss", Locale.KOREA);
+    private String prev_date = sdf.format(dt).toString();
+
     HashMap<String,String> map = new HashMap<String, String>( );
     @Override
     public void initialize(URL location, ResourceBundle resources){
@@ -76,6 +96,35 @@ public class Controller implements Initializable {
         comboItems.add(new SearchType("none",""));
         cbSearch.setItems( comboItems );
 
+        Timeline clock = new Timeline(new KeyFrame( Duration.ZERO, e -> {
+            Calendar cal = Calendar.getInstance(  );
+            second = cal.get(Calendar.SECOND);
+            minute = cal.get(Calendar.MINUTE);
+            hour = cal.get(Calendar.HOUR);
+            try {
+                Date dt_now = sdf.parse( hour + ":" + minute + ":" + second );
+                Date dt_prev = sdf.parse(prev_date);
+                long diff = dt_now.getTime() - dt_prev.getTime();
+                //time1.setText(diff+"");
+                long sec = (diff / 1000) % 60;
+                long min = (diff / (60 * 1000) % 60);
+                long hou = (diff / (60 * 1000 *1000)) ;
+                //if(min >= 60)min = 0;
+
+                //if(sec >= 60)sec = 0;
+
+               time1.setText( "Your Coding time "+String.format("%02d",hou)+":"+String.format("%02d",min)+":"+String.format("%02d",sec));
+            }catch (ParseException pe){
+
+            }
+
+            //time1.setText("coding Time "+ hour+":"+(minute)+":"+second );
+
+        } ),
+                new KeyFrame( Duration.seconds( 1 ) )
+        );
+        clock.setCycleCount( Animation.INDEFINITE );
+        clock.play();
     }
 
     public void hadleSearchAction(ActionEvent event){
@@ -110,6 +159,8 @@ public class Controller implements Initializable {
 
             System.out.println(obj);
             System.out.println(map.get(obj));
+            WebEngine webEngine = webView.getEngine();
+            webEngine.load(map.get(obj));
 
         } );
 

@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
 
 <Pane fx:id="TableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="821.0" style="-fx-background-color: black;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.dimigo.gui.Stack.Controller">
    <children>
@@ -18,5 +19,7 @@
             <Font size="18.0" />
          </font></Label>
       <ListView fx:id="list" layoutX="16.0" layoutY="47.0" prefHeight="515.0" prefWidth="210.0" />
+      <Label fx:id="time1" layoutX="21.0" layoutY="7.0" prefHeight="29.0" prefWidth="171.0" styleClass="label-bright" />
+      <WebView fx:id="webView" layoutX="240.0" layoutY="47.0" prefHeight="360.0" prefWidth="573.0" />
    </children>
 </Pane>

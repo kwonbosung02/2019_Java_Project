@@ -3,6 +3,7 @@ module ProjectFX {
     requires javafx.fxml;
     requires jackson.annotations;
     requires jsoup;
+    requires javafx.web;
     opens org.dimigo.gui.Stack;
 
 
