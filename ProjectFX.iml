@@ -8,7 +8,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="javafx-swt" level="application" />
-    <orderEntry type="library" name="com.fasterxml.jackson.core:jackson-annotations:2.0.4" level="project" />
     <orderEntry type="library" name="cn.wanghaomiao:JsoupXpath:0.2.2" level="project" />
+    <orderEntry type="library" name="com.fasterxml.jackson.core:jackson-databind:2.9.9" level="project" />
   </component>
 </module>

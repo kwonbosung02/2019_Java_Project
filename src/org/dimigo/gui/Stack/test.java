@@ -7,18 +7,15 @@ import java.util.List;
 
 public class test {
     public static void main(String[] args) {
-        int cnt = 1;
-        SearchTitle t = new SearchTitle( "java","nullpointer" );
-        for(Element i : t.SearchYourTitle("java","nullpointer"  )){
-            if(i.attr("title").equals( "" )){
-
-            }
-            else {
-                System.out.println( cnt + ". "+"https://stackoverflow.com" + i.attr( "href" ) );
-                cnt++;
-            }
+        String a = "hello";
+        TranslatorText.giveText( a );
+        System.out.println(TranslatorText.giveText( a ));
+        String b =  TranslatorText.giveText( a );
+        try {
+            System.out.println( TranslatorText.show( b ) );
         }
-        }
+        catch (Exception e){
 
+        }
     }
-
+}

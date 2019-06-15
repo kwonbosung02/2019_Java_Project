@@ -102,7 +102,18 @@
         -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
         -fx-text-fill:white;
 }
-
+  .text-area .content {
+  -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+      -fx-background-color: #1d1d1d;
+      -fx-border-color:#1d1d1d;
+      -fx-text-fill:white;
+  }
+    .text-area  {
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+        -fx-background-color: #1d1d1d;
+        -fx-border-color:#1d1d1d;
+        -fx-text-fill:white;
+    }
 .button {
     -fx-padding: 5 22 5 22;
     -fx-border-color: #e2e2e2;
@@ -239,4 +250,9 @@
     -fx-background-color :#1d1d1d;/*derive(#4D4C4F,10.0%);*/
     -fx-background-insets : 2.0, 0.0, 0.0;
     -fx-background-radius : 2.0em;
+}
+
+.browser {
+    -fx-background-color: #1d1d1d;
+
 }

@@ -9,11 +9,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.*;
 
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
@@ -39,6 +36,11 @@ public class Controller implements Initializable {
     Label time1;
     @FXML
     WebView webView;
+    @FXML
+    TextArea givetext;
+    @FXML
+    TextArea returntext;
+
 
     public int cnt = 1;
     private int minute, hour, second;
@@ -159,12 +161,26 @@ public class Controller implements Initializable {
 
             System.out.println(obj);
             System.out.println(map.get(obj));
+
             WebEngine webEngine = webView.getEngine();
             webEngine.load(map.get(obj));
 
         } );
 
        // lbl.setText( "hejerh" );
+
+    }
+    public void handleTranslate(ActionEvent event){
+        String give_text = givetext.getText();
+        //System.out.println(give_text);
+        String a = TranslatorText.giveText( give_text );
+        String b ="";
+        try {
+            b = String.valueOf( TranslatorText.show( a ));
+        }catch (Exception e){
+
+        }
+        returntext.setText( b );
 
     }
 

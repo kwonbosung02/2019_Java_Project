@@ -4,22 +4,26 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<Pane fx:id="TableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="821.0" style="-fx-background-color: black;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.dimigo.gui.Stack.Controller">
+<Pane fx:id="TableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="932.0" style="-fx-background-color: black;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.dimigo.gui.Stack.Controller">
    <children>
-      <Button fx:id="btnSearch" layoutX="715.0" layoutY="7.0" mnemonicParsing="false" onAction="#hadleSearchAction" prefHeight="2.0" prefWidth="99.0" text="Search" />
-      <ComboBox id="cbSearch" fx:id="cbSearch" layoutX="608.0" layoutY="7.0" prefHeight="29.0" prefWidth="99.0" styleClass="combo-box" stylesheets="@application.css" />
-      <TextField fx:id="txtSearch" layoutX="194.0" layoutY="7.0" prefHeight="25.0" prefWidth="406.0" />
+      <Button fx:id="btnSearch" layoutX="825.0" layoutY="8.0" mnemonicParsing="false" onAction="#hadleSearchAction" prefHeight="30.0" prefWidth="99.0" text="Search" />
+      <ComboBox id="cbSearch" fx:id="cbSearch" layoutX="714.0" layoutY="8.0" prefHeight="29.0" prefWidth="99.0" styleClass="combo-box" stylesheets="@application.css" />
+      <TextField fx:id="txtSearch" layoutX="296.0" layoutY="9.0" prefHeight="25.0" prefWidth="406.0" />
       <Label fx:id="lbl" layoutX="16.0" layoutY="8.0" prefHeight="29.0" prefWidth="171.0" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font></Label>
-      <ListView fx:id="list" layoutX="16.0" layoutY="47.0" prefHeight="515.0" prefWidth="210.0" />
-      <Label fx:id="time1" layoutX="21.0" layoutY="7.0" prefHeight="29.0" prefWidth="171.0" styleClass="label-bright" />
-      <WebView fx:id="webView" layoutX="240.0" layoutY="47.0" prefHeight="360.0" prefWidth="573.0" />
+      <ListView fx:id="list" layoutX="16.0" layoutY="47.0" prefHeight="529.0" prefWidth="149.0" />
+      <Label fx:id="time1" layoutX="21.0" layoutY="7.0" prefHeight="29.0" prefWidth="266.0" styleClass="label-bright" />
+      <WebView fx:id="webView" layoutX="175.0" layoutY="47.0" prefHeight="376.0" prefWidth="748.0" />
+      <TextArea fx:id="givetext" layoutX="175.0" layoutY="433.0" prefHeight="105.0" prefWidth="266.0" />
+      <Button fx:id="translatebutton" layoutX="175.0" layoutY="548.0" mnemonicParsing="false" onAction="#handleTranslate" prefHeight="29.0" prefWidth="266.0" text="Translate" />
+      <TextArea fx:id="returntext" layoutX="448.0" layoutY="433.0" prefHeight="145.0" prefWidth="476.0" />
    </children>
 </Pane>
