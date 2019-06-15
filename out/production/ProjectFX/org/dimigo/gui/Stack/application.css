@@ -100,13 +100,9 @@
         -fx-background-radius: 0;
         -fx-background-color: #1d1d1d;
         -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+        -fx-text-fill:white;
 }
 
-/*
- * Metro style Push Button
- * Author: Pedro Duque Vieira
- * http://pixelduke.wordpress.com/2012/10/23/jmetro-windows-8-controls-on-java/
- */
 .button {
     -fx-padding: 5 22 5 22;
     -fx-border-color: #e2e2e2;

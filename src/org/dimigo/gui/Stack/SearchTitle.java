@@ -37,10 +37,7 @@ public class SearchTitle {
 
         return ele;
     }
-    public Elements SearchYourLink(){
-        ele_link = p.select( "h3" ).select("a");
-        return ele;
-    }
+
 
 }
 

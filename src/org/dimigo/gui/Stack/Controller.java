@@ -15,6 +15,7 @@ import org.jsoup.nodes.Element;
 
 import java.net.URL;
 
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -26,11 +27,13 @@ public class Controller implements Initializable {
     ListView<String> list = new ListView<String>();
 
     public int cnt = 1;
-
+    HashMap<String,String> map = new HashMap<String, String>( );
     @Override
     public void initialize(URL location, ResourceBundle resources){
         ObservableList<SearchType> comboItems = FXCollections.observableArrayList();
         ObservableList<String> listItmes = FXCollections.observableArrayList();
+
+
         list.setItems( listItmes );
         comboItems.add(new SearchType("asp"));
         comboItems.add(new SearchType("assembly"));
@@ -83,23 +86,33 @@ public class Controller implements Initializable {
 
         System.out.printf("%s , %s \n",type, text);
         SearchTitle tit = new SearchTitle( type,text );
-
+        //-------------------------------------------------------------
         for (Element i : tit.SearchYourTitle( type, text )){
             if(i.attr("title").equals( "" )){
 
             }
             else {
                 System.out.println( cnt + ". " + i.attr( "title" ) );
+                System.out.println( cnt + ". " +"https://stackoverflow.com"+ i.attr( "href" ) );
+
                 list.getItems().add( cnt + "."+ i.attr( "title") );
+                map.put(cnt + "."+i.attr( "title" ),"https://stackoverflow.com"+ i.attr( "href" ));
                 cnt++;
+
             }
         }
+        //-------------------------------------------------------------
+
+
         list.getItems().add("=========================");
         list.setOnMouseClicked( (MouseEvent) -> {
             Object obj = list.getSelectionModel().getSelectedItem();
 
             System.out.println(obj);
+            System.out.println(map.get(obj));
+
         } );
+
        // lbl.setText( "hejerh" );
 
     }
