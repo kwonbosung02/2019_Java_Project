@@ -130,9 +130,15 @@ public class Controller implements Initializable {
     }
 
     public void hadleSearchAction(ActionEvent event){
-
+        String type;
         SearchType item = cbSearch.getSelectionModel().getSelectedItem();
-        String type = item.getValue();
+        try{
+            item.getValue();
+            type = item.getValue();
+        }catch (NullPointerException npe){
+            type ="";
+        }
+
         String text = txtSearch.getText();
 
         System.out.printf("%s , %s \n",type, text);
