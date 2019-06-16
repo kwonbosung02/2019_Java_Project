@@ -16,7 +16,7 @@ public class StackOverFlowMain extends Application {
     public void  start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load( getClass().getResource( "sample.fxml" ) );
         stage.setScene( new Scene(root) );
-        stage.setTitle("Stackoverflow Finder");
+        stage.setTitle("CODE for Developers");
 
         //stage.centerOnScreen();
         stage.show();
