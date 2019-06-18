@@ -49,6 +49,10 @@ public class Controller implements Initializable {
     SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss", Locale.KOREA);
     private String prev_date = sdf.format(dt).toString();
 
+    private String Array[]={"asp","assembly","bash","basic","CQL","C","C#","C++","cython","dart","doker","django",
+    "ejs","go","haskell","jade","java","javascript","kotlin","lisp","lua","livescript","matlab","mysql","nginx","objc","objective-C","pascal","python",
+    "perl","PHP","ruby","react","scala","sql","vue","vbscript"};
+
     HashMap<String,String> map = new HashMap<String, String>( );
     @Override
     public void initialize(URL location, ResourceBundle resources){
@@ -57,44 +61,9 @@ public class Controller implements Initializable {
 
 
         list.setItems( listItmes );
-        comboItems.add(new SearchType("asp"));
-        comboItems.add(new SearchType("assembly"));
-        comboItems.add(new SearchType("bash"));
-        comboItems.add(new SearchType("basic"));
-        comboItems.add(new SearchType("CQL"));
-        comboItems.add(new SearchType("C","c" ));
-        comboItems.add(new SearchType("C#","c#" ));
-        comboItems.add(new SearchType("C++","c++" ));
-        comboItems.add(new SearchType("cython","cython" ));
-        comboItems.add(new SearchType("dart","c++" ));
-        comboItems.add(new SearchType("doker"));
-        comboItems.add(new SearchType("django"));
-        comboItems.add(new SearchType("ejs"));
-        comboItems.add(new SearchType("go"));
-        comboItems.add(new SearchType("haskell"));
-        comboItems.add(new SearchType("jade"));
-        comboItems.add(new SearchType("java" ));
-        comboItems.add(new SearchType("javascript"));
-        comboItems.add(new SearchType("kotlin"));
-        comboItems.add(new SearchType("lisp"));
-        comboItems.add(new SearchType("lua"));
-        comboItems.add(new SearchType("livescript"));
-        comboItems.add(new SearchType("matlab"));
-        comboItems.add(new SearchType("mysql"));
-        comboItems.add(new SearchType("nginx"));
-        comboItems.add(new SearchType("objc"));
-        comboItems.add(new SearchType("objective-c"));
-        comboItems.add(new SearchType("pascal"));
-        comboItems.add(new SearchType("python"));
-        comboItems.add(new SearchType("perl"));
-        comboItems.add(new SearchType("PHP"));
-        comboItems.add(new SearchType("R"));
-        comboItems.add(new SearchType("ruby"));
-        comboItems.add(new SearchType("react"));
-        comboItems.add(new SearchType("scala"));
-        comboItems.add(new SearchType("sql"));
-        comboItems.add(new SearchType("vue"));
-        comboItems.add(new SearchType("vbscript"));
+        for (String Ar : Array){
+            comboItems.add(new SearchType( Ar ));
+        }
         comboItems.add(new SearchType("none",""));
         cbSearch.setItems( comboItems );
 
