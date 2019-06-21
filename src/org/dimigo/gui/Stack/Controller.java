@@ -19,6 +19,7 @@ import org.jsoup.nodes.Element;
 
 import java.net.URL;
 
+import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -62,7 +63,7 @@ public class Controller implements Initializable {
 
         list.setItems( listItmes );
         for (String Ar : Array){
-            comboItems.add(new SearchType( Ar ));
+            comboItems.add(new SearchType( Ar,Ar));
         }
         comboItems.add(new SearchType("none",""));
         cbSearch.setItems( comboItems );
@@ -109,7 +110,18 @@ public class Controller implements Initializable {
         }
 
         String text = txtSearch.getText();
+        // text = text.replace(" ","+");
+        //text = text.replace(":","%3A");
+        //text = text.replace("(","%28");
+        //text = text.replace(")","%29");
+        //text = text.replace("+","%2B");
+        //text = text.replace("'","%27");
+        try {
+            text = URLEncoder.encode( text, "UTF-8" );
+        }catch (Exception e){
 
+        }
+        System.out.println(text);
         System.out.printf("%s , %s \n",type, text);
         SearchTitle tit = new SearchTitle( type,text );
         //-------------------------------------------------------------
